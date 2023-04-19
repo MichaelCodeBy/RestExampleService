@@ -8,7 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
+import java.util.List;
+
 
 @RestController
 public class ClientController {
@@ -27,8 +28,8 @@ public class ClientController {
     }
 
     @GetMapping(value = "/clients")
-    public <client> ResponseEntity<List<Client>> read() {
-        final List<client> clients = clientService.readAll();
+    public ResponseEntity<List<Client>> read() {
+        final List<Client> clients = (List<Client>) clientService.readAll();
 
         return clients != null &&  !clients.isEmpty()
                 ? new ResponseEntity<>(clients, HttpStatus.OK)

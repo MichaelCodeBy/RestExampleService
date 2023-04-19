@@ -1,6 +1,14 @@
 package com.javarush.restexampleservice.service;
 
+import com.javarush.restexampleservice.model.Client;
 import org.springframework.stereotype.Service;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -18,7 +26,8 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> readAll() {
+    public List<Client> readAll()
+    {
         return new ArrayList<>(CLIENT_REPOSITORY_MAP.values());
     }
 
